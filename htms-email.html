@@ -1,0 +1,421 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+
+  <style>
+      body, li {
+          background-color: #FFFFFF;
+          /* font-size: 12px; */
+          color:#333333;
+          font-family:Arial,Helvetica,sans-serif;
+          font-size:9pt;
+          line-height:15pt;
+      }
+      
+      a {
+          text-decoration: none;
+          color: #0099FF;
+      }
+
+      #emailGreeting {
+          margin-bottom: 10px;
+      }
+
+      .thumbnail table {
+          width: 100%;
+      }
+
+      .thumbnail img {
+          width:100px;
+          height:75px;
+      }
+
+      #thumbnailContainer {
+          background-color: #ECECEC;
+          border: solid 1px #686868;
+          padding: 10px;
+          width: 550px;
+          text-align: center;
+      }
+
+      #thumbnailContainer td {
+          vertical-align: top;
+      }
+
+      .itemTitle {
+          color: #686868;
+          font-size: 10px;
+          font-weight: bold;
+      }
+
+      .itemStatistics {
+          color: #2C2C2C;
+          font-size: 10px;
+          font-weight: bold;
+      }
+
+      .itemDescription {
+          color: #686868;
+          font-size: 10px;
+          width: 150px;
+      }
+
+      .discussionDescription {
+          color: #686868;
+          font-size: 10px;
+          width: 100%;
+      }
+
+      .cgpicture {
+          border: 1px solid #CCCCCC;
+          padding: 3px;
+      }
+
+      .iconCell {
+          width:16px;
+      }
+
+      .hot {
+          font-weight: bold;
+          color: #FF0000;
+          font-style: italic;
+      }
+
+      .sectionHeader {
+            color:#E26200;
+            font-family:Arial,Helvetica,sans-serif;
+            font-size:11pt;
+            margin-left:15px;
+            margin-top:2px;
+            text-align:center;
+      }
+
+      .smallSectionHeader {
+          color:#E26200;
+          font-family:Arial,Helvetica,sans-serif;
+          font-size:8pt;
+          margin-top:20px;
+          margin-bottom: 10px;
+      }
+
+      .carIQLinksSection  {
+          border: solid 1px #686868;
+          padding: 3px;
+          width: 100px;
+      }
+
+      .carIQLinksSection a {
+          font-family:Arial,Helvetica,sans-serif;
+          font-size:8pt;
+      }
+
+      .emailHeader {
+            color:#E26200;
+            font-family:Arial,Helvetica,sans-serif;
+            font-size:20pt;
+            font-weight:bold;
+            margin-left:200px;
+            margin-top:2px;
+      }
+
+      #header {
+          margin-bottom: 20px;
+      }
+
+      .date {
+          font-size: 8pt;
+      }
+
+      .autoClubStats {
+          font-size:8pt;
+          color: #686868;
+          font-style: italic;
+      }
+
+      #aboutCarGurus {
+          font-size: 8pt;
+          color: #D2D2D2;
+          height:100%;
+          vertical-align:bottom;
+          line-height: 10pt;
+          margin-top: 20px;
+      }
+
+      #aboutCarGurus a {
+          color: #D2D2D2;
+      }
+
+      #brandTitle {
+          font-family:Arial,Helvetica,san-serif;
+          font-size:22px;
+          font-weight:bold;
+          color: #3B5998;
+      }
+
+      #brandSubTitle {
+          font-family:Arial,Helvetica,san-serif;
+          font-size:10px;
+      }
+  </style>
+
+  <body>
+    <div id="header">
+
+        <table>
+            <tr>
+                <td>
+                    <div id="brandTitle">Car IQ</div> <!-- width:85px;height:15px; -->
+                    <div id="brandSubtitle"> by <img align="middle" style="width:56px;height:10px;" src="http://www.cargurus.com/gfx/logos/car_iq_cargurus_logo.gif?v2"/></div>
+                </td>
+                <td style="vertical-align:middle;"><div class="emailHeader">Auto Clubs Weekly Digest</div></td>
+            </tr>
+        </table>
+    </div>
+    <!--
+    <div id="emailGreeting">Kyle,</div>
+    <div>
+        For this week, this is what has been <span class="hot">hot</span> in your auto clubs:
+    </div>
+    -->
+    <table>
+        <tr>
+            <!-- left column -->
+            <td style="width:120px;height:100%;vertical-align:top;">
+                <div class="date">February 2nd, 2009</div>
+                <div class="smallSectionHeader">Car IQ Destinations</div>
+                <div class="carIQLinksSection">
+                    <table>
+                        <tr>
+                            <td><img style="width:9px;height:9px;" src="http://www.cargurus.com/gfx/bullet.jpg"/></td>
+                            <td><a href="http://apps.facebook.com/cgchallenge/new/play.action">Play Car IQ</a></td>
+                        </tr>
+                        <tr>
+                            <td><img style="width:9px;height:9px;" src="http://www.cargurus.com/gfx/bullet.jpg"/></td>
+                            <td><a href="http://apps.facebook.com/cgchallenge/myCars.action">Your Garage</a></td>
+                        </tr>
+                        <tr>
+                            <td><img style="width:9px;height:9px;" src="http://www.cargurus.com/gfx/bullet.jpg"/></td>
+                            <td><a href="http://apps.facebook.com/cgchallenge/autoclub/viewAutoClubHome.action">Auto Clubs</a></td>
+                        </tr>
+                        <tr>
+                            <td><img style="width:9px;height:9px;" src="http://www.cargurus.com/gfx/bullet.jpg"/></td>
+                            <td><a href="http://apps.facebook.com/cgchallenge/local/findMechanic.action">Repairs</a></td>
+                        </tr>
+                        <tr>
+                            <td><img style="width:9px;height:9px;" src="http://www.cargurus.com/gfx/bullet.jpg"/></td>
+                            <td><a href="http://apps.facebook.com/cgchallenge/settingsPROFILE.action">Settings</a></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="smallSectionHeader">More Actions...</div>
+                <div class="carIQLinksSection">
+                    <table>
+                        <tr>
+                            <td><img style="width:9px;height:9px;" src="http://www.cargurus.com/gfx/bullet.jpg"/></td>
+                            <td><a href="http://apps.facebook.com/cgchallenge/settingsCOMMUNICATION.action">Change Settings</a></td>
+                        </tr>
+                        <tr>
+                            <td><img style="width:9px;height:9px;" src="http://www.cargurus.com/gfx/bullet.jpg"/></td>
+                            <td><a href="http://apps.facebook.com/cgchallenge/autoclub/viewAutoClubBulkJoin.action">Join More Clubs</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+
+            <!-- right column -->
+            <td style="width:500px;border-left: solid 1px #CCCCCC;">
+                <div class="sectionHeader">Hottest Activity in Your Auto Clubs</div>
+                <div style="padding:20px;">
+                    <div id="thumbnailContainer">
+                        <table border="0" style="width:100%;">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <!-- picture -->
+                                        <div class="thumbnail">
+                                            <table border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <table>
+                                                                <tr>
+                                                                    <td class="iconCell">
+                                                                        <img style="height:16px; width:16px;" src="http://www.cargurus.com/gfx/mini/picture_add.gif"/>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="itemTitle">
+                                                                            2006 Ford Mustang RX
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="cgpicture">
+                                                                <img title="Click here to view!" src="http://www.cargurus.com/images/2008/09/24/17/12/pic-25641.jpeg"/>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="itemStatistics">
+                                                                10 comments
+                                                            </div>
+                                                            <div class="itemDescription" title="This is a relatively modest description that will be truncated to a specific number of characters. The hover will have the fuller text. This should be ok!">
+                                                                This is a relatively modest description that will be truncated to a specific number of characters. The hover will ...
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <!-- video -->
+                                        <div class="thumbnail">
+                                            <table border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <table>
+                                                                <tr>
+                                                                    <td class="iconCell">
+                                                                        <img style="height:16px; width:16px;" src="http://www.cargurus.com/gfx/mini/film_add.gif"/>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="itemTitle">My Friend's Speed Racing</div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="cgpicture">
+                                                                <img title="Click here to view!" src="http://www.cargurus.com/images/2008/09/24/17/12/pic-25641.jpeg"/>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="itemStatistics">
+                                                                4 comments
+                                                            </div>
+                                                            <div class="itemDescription" title="This is a relatively modest description that will be truncated to a specific number of characters. The hover will have the fuller text. This should be ok!">
+                                                                This is a relatively modest description that will be truncated to a specific number of characters. The hover will ...
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <!-- news item -->
+                                        <div class="thumbnail">
+                                            <table border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <table>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img style="height:16px; width:16px;" src="http://www.cargurus.com/gfx/mini/newspaper.gif"/>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="itemTitle">Ford unveils the newest addition to the Ford family</div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="cgpicture">
+                                                                <img title="Click here to view!" src="http://www.cargurus.com/images/2008/09/24/17/12/pic-25641.jpeg"/>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="itemStatistics">
+                                                                10 comments
+                                                            </div>
+                                                            <div class="itemDescription" title="This is a relatively modest description that will be truncated to a specific number of characters. The hover will have the fuller text. This should be ok!">
+                                                                This is a relatively modest description that will be truncated to a specific number of characters. The hover will ...
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <!-- discussion -->
+                                        <div class="thumbnail">
+                                            <table border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <table>
+                                                                <tr>
+                                                                    <td>
+                                                                        <img style="width:16px;height:16px;" src="http://www.cargurus.com/gfx/mini/comments.gif" />
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="itemTitle">
+                                                                        What is the average torque for a '65 Mustang that does not have a drive shaft?
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                            <div class="itemStatistics">
+                                                                4 comments
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="discussionDescription" title="This is a relatively modest description that will be truncated to a specific number of characters. The hover will have the fuller text. This should be ok!">
+                                                                This is a relatively modest description that will be truncated to a specific number of characters. This is additional text that is part of the description and keeps on going on and on and on and on and on and on and on and on and on and on and on and on and on and on ...
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="sectionHeader">Your Current Auto Clubs</div>
+                <div>
+                    <ul>
+                        <li><a href="#">Ford Mustang</a> - <span class="autoClubStats">15000 members, 7 pictures, 10 videos</span></li>
+                        <li><a href="#">Alfa Romeo</a> - <span class="autoClubStats">15000 members, 7 pictures, 10 videos</span></li>
+                        <li><a href="#">Toyota Camry</a> - <span class="autoClubStats">15000 members, 7 pictures, 10 videos</span></li>
+                        <li><a href="#">Chevrolet Corvette</a> - <span class="autoClubStats">15000 members, 7 pictures, 10 videos</span></li>
+                    </ul>
+                </div>
+            </td> <!-- right column -->
+        </tr>
+    </table>
+    <div id="aboutCarGurus">
+        <div><a href="http://www.cargurus.com/Cars/enterFeedback.action?feedbackType=GENERAL">Contact Us</a> - <a href="http://www.cargurus.com/Cars/privacyPolicy.html">Privacy Policy</a></div>
+        <div>Copyright © 2006-2009 CarGurus ® LLC</div>
+        <div>All Rights Reserved.</div>
+    </div>
+
+  </body>
+</html>
