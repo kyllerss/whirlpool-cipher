@@ -24,6 +24,18 @@ class State
                           [0x04, 0x01, 0x08, 0x05, 0x02, 0x09, 0x01, 0x01],
                           [0x01, 0x04, 0x01, 0x08, 0x05, 0x02, 0x09, 0x01]]
 
+    @sub_byte_manager = SBox.new
+
+  end
+
+  def sub_bytes!
+
+    @state.each_index do |row|
+      @state.each_index do |column|
+
+        @state[row][column] = @sub_byte_manager.sub_bytes(@state[row][column])
+      end
+    end
   end
 
   def shift_columns!
@@ -53,6 +65,13 @@ class State
   end
 
   def add_round_key!(round_key)
-    
+
+    @state.each_index do |row|
+
+      @state[row].each_index do |column|
+
+        @state[row][column] = @state[row][column] ^ round_key[row][column]
+      end
+    end
   end
 end
