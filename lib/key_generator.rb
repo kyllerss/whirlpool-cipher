@@ -1,0 +1,18 @@
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+
+class KeyGenerator
+
+  def initialize(key)
+
+    @round_keys = Array.new
+
+    round_constant_manager = RoundConstants.new
+    input_state = key
+    1.upto(10) do |i|
+      round = Round.new(input_state, round_constant_manager.get_round_constant(i))
+      @round_keys << round
+      input_state = round.state # will be used as input state for next Round
+    end
+  end
+end
