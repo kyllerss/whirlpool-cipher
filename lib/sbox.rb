@@ -3,11 +3,13 @@
 
 class SBox
 
-  def self.get_instance
-
-    @@singleton == SBox.new unless @@singleton != nil
-    return @@singleton
+  private_class_method :new
+  @@singleton = nil
+  def SBox.create
+    @@singleton = new unless @@singleton
+    @@singleton
   end
+
 
   def initialize(verbose = false)
 
@@ -135,8 +137,8 @@ class SBox
 
 end
 
-sbox = SBox.new(false)
-input = 0x12
-sbox_output = sbox.sub_bytes(input)
-#inv_sbox_output = sbox.inv_sub_bytes(sbox_output)
-puts "input: #{input.to_s(16)} -> sbox: #{sbox_output.to_s(16)}" #, inv-sbox: #{inv_sbox_output.to_s(16)}"
+#sbox = SBox.new(false)
+#input = 0x12
+#sbox_output = sbox.sub_bytes(input)
+##inv_sbox_output = sbox.inv_sub_bytes(sbox_output)
+#puts "input: #{input.to_s(16)} -> sbox: #{sbox_output.to_s(16)}" #, inv-sbox: #{inv_sbox_output.to_s(16)}"

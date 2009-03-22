@@ -4,11 +4,36 @@
 class Encryptor
 
   def initialize
-    
+    @round_constant_manager = RoundConstants.new
   end
 
-  def encrypt(plain_text)
+  def encrypt_block(plain_text_block, key)
 
+    encryption_state = State.new(plain_text_block)
+
+    # perform key expansion
+    key_state = create_key_state(key)
+    key_generator = KeyGenerator.new(key_state)
+
+    #
+    # execute encryption rounds
+    #
+
+    # Step 0: Add cipher key as the initial round key
+    encryption_state.add_round_key!(key_state)
     
+    # Steps 1-10: Execute encryption rounds
+    1.upto(10) do |i|
+      round = Round.new(encryption_state, key_generator.get_round_key(i))
+      round.execute # calculate round key
+    end
+
+    # return encrypted state
+    return encryption_state.state
+  end
+
+  private
+  def create_key_state(key)
+    MatrixUtil.create_matrix(key)
   end
 end

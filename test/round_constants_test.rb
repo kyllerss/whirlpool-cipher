@@ -11,8 +11,7 @@ class RoundConstantsTest < Test::Unit::TestCase
 
   def test_round_constant_3
 
-    sbox_manager = SBox.new
-    round_constants_manager = RoundConstants.new(sbox_manager)
+    round_constants_manager = RoundConstants.new()
 
     expected_matrix = [[0x60, 0xBC, 0x9B, 0x8E, 0xA3, 0x0C, 0x7B, 0x35],
                        [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
@@ -23,7 +22,7 @@ class RoundConstantsTest < Test::Unit::TestCase
                        [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00],
                        [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]]
 
-    round_constant_3 = round_constants_manager.get_round(3)
+    round_constant_3 = round_constants_manager.get_round_constant(3)
 
     assert_equal expected_matrix, round_constant_3
   end

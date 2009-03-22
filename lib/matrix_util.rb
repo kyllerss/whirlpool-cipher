@@ -43,4 +43,18 @@ class MatrixUtil
 
     return column_array
   end
+
+  def self.create_matrix(block)
+
+    matrix = Array.new(8) {Array.new(8)}
+
+    0.upto(63) do |i|
+
+      row, column = i.divmod(8)
+
+      matrix[row][column] = block[i]
+    end
+
+    return matrix
+  end
 end

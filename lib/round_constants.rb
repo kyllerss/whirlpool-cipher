@@ -4,18 +4,21 @@ class RoundConstants
 
   def initialize()
     
-    sub_bytes_manager = SBox.get_instance
+    sub_bytes_manager = SBox.create
 
     @round_constants = Array.new
 
     1.upto(10) do |round|
 
-      @round_constants[round] = Array.new(8) { Array.new(8) { 0x00 } }
-      @round_constants[round][0].each_index do |column|
+      round_constant_state = Array.new(8) { Array.new(8) { 0x00 } }
+
+      round_constant_state[0].each_index do |column|
 
         input_byte = 8 * (round - 1) + column
-        @round_constants[round][0][column] = sub_bytes_manager.sub_bytes(input_byte)
+        round_constant_state[0][column] = sub_bytes_manager.sub_bytes(input_byte)
       end
+
+      @round_constants[round] = round_constant_state
     end
   end
 

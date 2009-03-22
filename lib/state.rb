@@ -6,14 +6,7 @@ class State
     
     raise "Invalid dimensions for block" unless block.length == 64
 
-    @state = Array.new(8) {Array.new(8)}
-
-    0.upto(63) do |i|
-      
-      row, column = i.divmod(8)
-      
-      @state[row][column] = block[i]
-    end
+    @state = MatrixUtil.create_matrix(block)
 
     @mix_rows_constant = [[0x01, 0x01, 0x04, 0x01, 0x08, 0x05, 0x02, 0x09],
                           [0x09, 0x01, 0x01, 0x04, 0x01, 0x08, 0x05, 0x02],
@@ -24,7 +17,7 @@ class State
                           [0x04, 0x01, 0x08, 0x05, 0x02, 0x09, 0x01, 0x01],
                           [0x01, 0x04, 0x01, 0x08, 0x05, 0x02, 0x09, 0x01]]
 
-    @sub_byte_manager = SBox.get_instance
+    @sub_byte_manager = SBox.create
 
   end
 
