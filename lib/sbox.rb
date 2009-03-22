@@ -3,6 +3,12 @@
 
 class SBox
 
+  def self.get_instance
+
+    @@singleton == SBox.new unless @@singleton != nil
+    return @@singleton
+  end
+
   def initialize(verbose = false)
 
     # encryption mappings

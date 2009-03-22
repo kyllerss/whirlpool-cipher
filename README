@@ -1,3 +1,22 @@
 == whirlpool-cipher
 
-You should document your project here.
+This project is meant to be a pure Ruby implementation of the Whirlpool cipher
+that focuses on illustrating the different steps in the cipher. As such,
+code clarity is the main focus of this implementation. Performance considerations
+of the implementation are minimally kept in mind.
+
+One aspect of this project that will stand out from other implementations
+is that I will try not to rely on hardcoded constants for each of the steps. While these
+constants are a good thing to have hardcoded into the implementation for performance
+reasons, they contribute little to understanding how the algorithm actually works.
+
+Bare with me as the project evolves into something that can actually be used.
+
+For the time being this project will be prioritized in the following ways:
+
+1) get a working implementation up and running,
+2) add algorithm-centric documentation,
+3) remove all constants that can be derived algorithmically,
+4) clean up structure of project, and
+5) fix bugs/documentation
+
