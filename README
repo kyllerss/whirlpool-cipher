@@ -17,6 +17,6 @@ For the time being this project will be prioritized in the following ways:
 1) get a working implementation up and running,
 2) add algorithm-centric documentation,
 3) remove all constants that can be derived algorithmically,
-4) clean up structure of project, and
+4) clean up (code, project structure, etc...), and
 5) fix bugs/documentation
 
