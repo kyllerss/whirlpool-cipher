@@ -1,12 +1,15 @@
+require 'sbox'
+require 'matrix_util'
+
 class State
 
   attr_reader :state
 
   def initialize(block)
     
-    raise "Invalid dimensions for block" unless block.length == 64
+    raise "Invalid dimensions for block" unless block.flatten.length == 64
 
-    @state = MatrixUtil.create_matrix(block)
+    @state = block
 
     @mix_rows_constant = [[0x01, 0x01, 0x04, 0x01, 0x08, 0x05, 0x02, 0x09],
                           [0x09, 0x01, 0x01, 0x04, 0x01, 0x08, 0x05, 0x02],

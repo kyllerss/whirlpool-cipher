@@ -1,5 +1,8 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
+require 'round'
+require 'round_constants'
+require 'key_generator'
+require 'matrix_util'
+require 'state'
 
 class Encryptor
 
@@ -7,9 +10,9 @@ class Encryptor
     @round_constant_manager = RoundConstants.new
   end
 
-  def encrypt_block(plain_text_block, key)
+  def encrypt_state(raw_state, key)
 
-    encryption_state = State.new(plain_text_block)
+    encryption_state = State.new(raw_state)
 
     # perform key expansion
     key_state = create_key_state(key)
@@ -20,7 +23,7 @@ class Encryptor
     #
 
     # Step 0: Add cipher key as the initial round key
-    encryption_state.add_round_key!(key_state)
+    encryption_state.add_round_key!(key_state.state)
     
     # Steps 1-10: Execute encryption rounds
     1.upto(10) do |i|
@@ -34,6 +37,6 @@ class Encryptor
 
   private
   def create_key_state(key)
-    MatrixUtil.create_matrix(key)
+    State.new(MatrixUtil.create_matrix(key))
   end
 end

@@ -69,7 +69,7 @@ class MatrixUtil
 
     last_index = initial_array.length
     elements_to_pad = matrix_size - initial_array.length
-    initial_array.fill(" ".unpack("U")[0], last_index, elements_to_pad)
+    initial_array.fill(" ".unpack("U")[0], last_index, elements_to_pad) # pad with " " (space)
 
     matrices << MatrixUtil.create_matrix(initial_array)
 

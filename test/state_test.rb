@@ -21,7 +21,7 @@ class StateTest < Test::Unit::TestCase
       end
     end
 
-    state = State.new(block)
+    state = State.new(MatrixUtil.create_matrix(block))
 
     assert_equal(expected_state, state.state)
   end
@@ -46,7 +46,7 @@ class StateTest < Test::Unit::TestCase
                       [6,5,4,3,2,1,0,7],
                       [7,6,5,4,3,2,1,0]]
 
-    state = State.new(initial_state.flatten!)
+    state = State.new(MatrixUtil.create_matrix(initial_state.flatten!))
 
     state.shift_columns!
     

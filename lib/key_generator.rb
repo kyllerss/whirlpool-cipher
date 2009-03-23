@@ -1,5 +1,5 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
+require 'round'
+require 'round_constants'
 
 class KeyGenerator
 
@@ -14,7 +14,7 @@ class KeyGenerator
       round = Round.new(input_state, round_constant_manager.get_round_constant(i))
       round.execute # calculate round key
 
-      @round_keys << round.state
+      @round_keys << round.state.state
 
       input_state = round.state # will be used as input state for next Round
     end
@@ -24,6 +24,6 @@ class KeyGenerator
 
     raise "Unknown round key requested. Must be 0..10." unless 0..10 === round_key_num
 
-    @round_key[round_key_num]
+    @round_keys[round_key_num]
   end
 end
