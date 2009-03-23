@@ -57,4 +57,22 @@ class MatrixUtil
 
     return matrix
   end
+
+  def self.chunk_to_matrices(initial_array)
+
+    matrix_size = 512 / 8 # 512 bits (block size) / 8 (utf-8 char size)
+    matrices = Array.new
+
+    while initial_array.length > matrix_size
+      matrices << MatrixUtil.create_matrix(initial_array.slice!(0, matrix_size))
+    end
+
+    last_index = initial_array.length
+    elements_to_pad = matrix_size - initial_array.length
+    initial_array.fill(" ".unpack("U")[0], last_index, elements_to_pad)
+
+    matrices << MatrixUtil.create_matrix(initial_array)
+
+    return matrices
+  end
 end
