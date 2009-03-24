@@ -10,9 +10,9 @@ class Encryptor
     @round_constant_manager = RoundConstants.new
   end
 
-  def encrypt_state(raw_state, key)
+  def encrypt_state(block, key)
 
-    encryption_state = State.new(raw_state)
+    encryption_state = State.new(MatrixUtil.create_matrix(block))
 
     # perform key expansion
     key_state = create_key_state(key)
@@ -31,8 +31,8 @@ class Encryptor
       round.execute # calculate round key
     end
 
-    # return encrypted state
-    return encryption_state.state
+    # return encrypted state as block of bits
+    return encryption_state.state.flatten
   end
 
   private

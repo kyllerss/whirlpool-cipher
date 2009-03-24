@@ -17,4 +17,7 @@ class WhirlpoolCipherTest < Test::Unit::TestCase
     assert original_block.length == 1
 
   end
+
 end
+
+
