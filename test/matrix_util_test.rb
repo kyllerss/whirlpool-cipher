@@ -57,15 +57,15 @@ class MatrixUtilTest < Test::Unit::TestCase
     assert matrices.length == 3
 
     first_matrix = matrices[0]
-    assert first_matrix[0][0] = 0
-    assert first_matrix[7][7] = 63
+    assert first_matrix[0][0] == 0
+    assert first_matrix[7][7] == 63
 
     second_matrix = matrices[1]
-    assert second_matrix[0][0] = 64
-    assert second_matrix[7][7] = 127
+    assert second_matrix[0][0] == 64
+    assert second_matrix[7][7] == 127
 
     third_matrix = matrices[2]
-    assert third_matrix[0][0] = 128
-    assert third_matrix[7][7] = 32
+    assert third_matrix[0][0] == 128
+    assert third_matrix[7][7] == 32
   end
 end
