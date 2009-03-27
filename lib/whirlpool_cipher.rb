@@ -10,7 +10,7 @@ class WhirlpoolCipher
 #    plain_text_utf8_bits = plain_text.unpack("U*")
 #
 #    # convert into byte array
-#    plain_text_byte_array = []
+#    plain_text_byte_array = plain_text_utf8_bits
 #
 #    return hash(plain_text_byte_array)
 #  end
@@ -25,7 +25,7 @@ class WhirlpoolCipher
     encrypted_state = nil
 
     # initial key is 512 bits consisting of zeroes (0)
-    key = Array.new(512/16) {0x00} # 512 bits / 16 bits = 32 array slots
+    key = Array.new(512/8) {0x00} # 512 bits / 8 bits = 64 array slots
 
     input_blocks.each do |block|
 
@@ -48,7 +48,7 @@ class WhirlpoolCipher
 
 end
 
-plain_text = Array.new(512/16) {0x00}
+plain_text = Array.new(512/8) {0x00}
 cipher = WhirlpoolCipher.new
 output = cipher.hash(plain_text)
 puts output
