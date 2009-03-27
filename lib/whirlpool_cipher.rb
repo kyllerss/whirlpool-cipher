@@ -43,7 +43,7 @@ class WhirlpoolCipher
 
     end
 
-    encrypted_state
+    encrypted_state.inject("") {|hash_val, item| hash_val + item.to_s(16)}
   end
 
 end
