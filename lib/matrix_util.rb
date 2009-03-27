@@ -28,6 +28,8 @@ class MatrixUtil
     product_summation = 0
     row_array.each_index do |i|
 
+      # FIXME: This is wrong... not regular summation... must be
+      # multiplication in GF(2^8)!!!
       product_summation = product_summation + row_array[i] * column_array[i]
     end
 
