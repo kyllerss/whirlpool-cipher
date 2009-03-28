@@ -23,12 +23,12 @@ class MatrixUtilTest < Test::Unit::TestCase
 
   def test_summation
 
-    array1 = [1, 2, 3]
-    array2 = [1, 2, 3]
+    array1 = [0x26]
+    array2 = [0x9e]
 
     summation = MatrixUtil.calculate_summation(array1, array2)
 
-    expected_summation = 14
+    expected_summation = 0x2f
 
     assert_equal expected_summation, summation
   end
