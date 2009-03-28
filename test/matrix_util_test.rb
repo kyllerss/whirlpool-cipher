@@ -25,8 +25,9 @@ class MatrixUtilTest < Test::Unit::TestCase
 
     array1 = [0x26]
     array2 = [0x9e]
+    test_irreducible_polynomial = 0x1B
 
-    summation = MatrixUtil.calculate_summation(array1, array2)
+    summation = MatrixUtil.calculate_summation(array1, array2, test_irreducible_polynomial)
 
     expected_summation = 0x2f
 
@@ -35,16 +36,16 @@ class MatrixUtilTest < Test::Unit::TestCase
 
   def test_multiply
 
-    matrix1 = [[1, 2, 3]]
-    matrix2 = [[1, 1],
-               [2, 2],
-               [3, 3]]
+    matrix1 = [[0x26]]
+    matrix2 = [[0x9e]]
 
-    expected_matrix = [[14, 14]]
+    expected_matrix = [[0x2f]]
 
-    result_matrix = MatrixUtil.multiply(matrix1, matrix2)
+    result_matrix = MatrixUtil.multiply(matrix1, matrix2, 0x1B)
 
     assert_equal expected_matrix, result_matrix
+
+    # TODO: add other test that tests multiple columns and rows
   end
 
   def test_chunk_to_matrices

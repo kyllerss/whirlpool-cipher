@@ -43,7 +43,12 @@ class WhirlpoolCipher
 
     end
 
-    encrypted_state.inject("") {|hash_val, item| hash_val + item.to_s(16)}
+    encrypted_state.inject("") do |hash_val, item|
+      hex_val = (item & 0xFF).to_s(16).upcase
+      hex_val = "0" + hex_val unless hex_val.length == 2 # ensure leading zero not stripped out
+      hash_val = hash_val + hex_val
+      hash_val
+    end
   end
 
 end

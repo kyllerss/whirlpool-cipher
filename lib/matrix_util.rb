@@ -1,7 +1,7 @@
 
 class MatrixUtil
 
-  def self.multiply(matrix1, matrix2)
+  def self.multiply(matrix1, matrix2, irreducible_polynomial=0x11D)
 
     unless matrix1[0].length == matrix2.length
       raise "First matrix length[].length must match second matrix[].length"
@@ -15,21 +15,22 @@ class MatrixUtil
 
         row_array = matrix1[row]
         column_array = extract_column(matrix2, column)
-        product[row][column] = calculate_summation(row_array, column_array)
+        product[row][column] = calculate_summation(row_array, column_array, irreducible_polynomial)
       end
     end
 
     return product
   end
 
-  def self.calculate_summation(row_array, column_array)
+  def self.calculate_summation(row_array, column_array, irreducible_polynomial)
 
     raise "Both arrays must be of same dimension." unless row_array.length == column_array.length
+
     product_summation = 0
     row_array.each_index do |i|
 
-      # summation is done in GF(2^8)
-      product_summation = product_summation ^ multiply(row_array[i], column_array[i])
+      # summation is done in GF(2^8) with irreducible polynomial
+      product_summation = product_summation ^ multiply_in_gf2_8(row_array[i], column_array[i], irreducible_polynomial)
     end
 
     return product_summation
@@ -83,10 +84,7 @@ class MatrixUtil
   # This is accomplished by finding x * (... * (x * value2)...) % irreducible_polynomial
   # ... and then adding the products of those entries that correspond to the value1 where each
   # binary slot is 1.
-  def self.multiply(value1, value2)
-
-    # irreducible polynomial
-    irreducible_polynomial = 0x1b # 0x1D # ? 0x11D?
+  def self.multiply_in_gf2_8(value1, value2, irreducible_polynomial)
 
     # keeps track all the corresponding products
     products = Array.new
@@ -115,6 +113,6 @@ class MatrixUtil
     # add (XOR) products to add
     result = products_to_add.inject {|summation, product| summation ^ product}
 
-    return result
+    return result != nil ? result : 0
   end
 end
