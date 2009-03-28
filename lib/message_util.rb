@@ -46,7 +46,7 @@ class MessageUtil
     message_length_component = Array.new((256/8) - hex_string_array.length) {0x00}
     
     # add remaining int value array elements to the array
-    hex_string_array.each {|hex_val| message_length_component << hex_val.to_i(8)}
+    hex_string_array.each {|hex_val| message_length_component << hex_val.to_i(16)}
 
     message_length_component
   end
