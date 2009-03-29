@@ -36,10 +36,10 @@ class WhirlpoolCipher
       key = encrypted_state
 
       # new key preprocessed by XOR-ing to previous key
-      key.each_index {|i| key[i] = key[i] ^ previous_key[i]}
+      key.each_index {|i| key[i] ^= previous_key[i]}
 
       # new key preprocessed by XOR-ing to input bits
-      key.each_index {|i| key[i] = key[i] ^ block[i]}
+      key.each_index {|i| key[i] ^= block[i]}
 
     end
 
