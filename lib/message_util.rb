@@ -2,6 +2,9 @@
 class MessageUtil
 
   # FIXME: Cannot assume original message is multiple of 8 bits.
+  # DO:
+  # 1) padding_prefix = 0x80 >> #?#
+  # 2) bytes_array.last | padding_prefix
   def self.pad_byte_array(bytes_array)
 
     # create padding such that fully padded message is odd multiple of 256 bits (32 bytes)
@@ -40,7 +43,7 @@ class MessageUtil
   def self.create_message_length_component message_length
 
     hex_string = message_length.to_s(16)
-    hex_string = "0" + hex_string unless hex_string % 2 == 0 # force even numbered hex string
+    hex_string = "0" + hex_string unless hex_string.length % 2 == 0 # force even numbered hex string
     hex_string_array = hex_string.scan(/../) # break up hex string into array
 
     # add the appropriate number of zero-bits preceeding the actual int value

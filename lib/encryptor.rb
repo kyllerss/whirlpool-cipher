@@ -27,8 +27,11 @@ class Encryptor
     
     # Steps 1-10: Execute encryption rounds
     1.upto(10) do |i|
-      round = Round.new(encryption_state, key_generator.get_round_key(i))
+      round_key = key_generator.get_round_key(i)
+      round = Round.new(encryption_state, round_key)
       round.execute # calculate round key
+
+      encryption_state = round.state
     end
 
     # return encrypted state as block of bits

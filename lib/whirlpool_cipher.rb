@@ -55,8 +55,8 @@ end
 
 
 #plain_text = Array.new(512/8) {0x00}
-#plain_text = [0x00]
-plain_text = []
+plain_text = [0x61, 0x62, 0x63] # abc in ascii code
+#plain_text = []
 cipher = WhirlpoolCipher.new
 output = cipher.hash(plain_text)
 puts output

@@ -9,14 +9,15 @@ class KeyGenerator
     round_constant_manager = RoundConstants.new
     input_state = key_state
 
-    @round_keys << input_state
+    @round_keys << input_state.state.clone # not needed, but good to keep as reference (debugging)
     1.upto(10) do |i|
-      round = Round.new(input_state, round_constant_manager.get_round_constant(i))
+      round_constant = round_constant_manager.get_round_constant(i)
+      round = Round.new(input_state, round_constant)
       round.execute # calculate round key
 
-      @round_keys << round.state.state
-
       input_state = round.state # will be used as input state for next Round
+
+      @round_keys << round.state.state
     end
   end
 

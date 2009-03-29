@@ -4,7 +4,7 @@ class Round
   attr_reader :state
 
   def initialize(input_state, round_key)
-    @state = input_state
+    @state = input_state.clone
     @round_key = round_key
   end
 

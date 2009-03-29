@@ -70,4 +70,13 @@ class State
       end
     end
   end
+
+  def clone
+
+    # clone state array (subsequent rounds will change this array)
+    cloned_state = Array.new()
+    @state.each { |row| cloned_state << row.clone }
+
+    State.new(cloned_state)
+  end
 end
