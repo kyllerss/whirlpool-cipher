@@ -53,8 +53,10 @@ class WhirlpoolCipher
 
 end
 
+
 #plain_text = Array.new(512/8) {0x00}
-plain_text = [0x00]
+#plain_text = [0x00]
+plain_text = []
 cipher = WhirlpoolCipher.new
 output = cipher.hash(plain_text)
 puts output

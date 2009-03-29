@@ -1,6 +1,7 @@
 
 class MessageUtil
 
+  # FIXME: Cannot assume original message is multiple of 8 bits.
   def self.pad_byte_array(bytes_array)
 
     # create padding such that fully padded message is odd multiple of 256 bits (32 bytes)
