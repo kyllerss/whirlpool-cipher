@@ -9,8 +9,8 @@ class MessageUtil
 
     # create padding such that fully padded message is odd multiple of 256 bits (32 bytes)
     count, offset = bytes_array.length.divmod( 256/8 )
-    if (count.odd? && offset == 0)
-      padding_length = 512/8
+    if (count.odd?)
+      padding_length = (256/8) + (256/8) - offset
     else
       padding_length = (256/8) - offset
     end
