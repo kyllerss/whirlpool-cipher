@@ -8,7 +8,14 @@ class MessageUtil
   def self.pad_byte_array(bytes_array)
 
     # create padding such that fully padded message is odd multiple of 256 bits (32 bytes)
-    padding = Array.new((256/8) - bytes_array.length % (256/8)) {0x00}
+    count, offset = bytes_array.length.divmod( 256/8 )
+    if (count.odd? && offset == 0)
+      padding_length = 512/8
+    else
+      padding_length = (256/8) - offset
+    end
+
+    padding = Array.new(padding_length) {0x00}
     padding[0] = 0x80 # leading padding marker (binary: 1000 0000)
 
     # create message length padding component with length field - 256 bits (32 bytes)
