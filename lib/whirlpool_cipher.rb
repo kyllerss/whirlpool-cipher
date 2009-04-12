@@ -15,7 +15,7 @@ class WhirlpoolCipher
 #    return hash(plain_text_byte_array)
 #  end
 
-  def hash(input_byte_array)
+  def hash(input_byte_array, debug = false)
 
     padded_byte_array = MessageUtil.pad_byte_array input_byte_array
     input_blocks = MessageUtil.chunk_into_blocks padded_byte_array
@@ -25,6 +25,7 @@ class WhirlpoolCipher
     encrypted_state = nil
 
     # initial key is 512 bits consisting of zeroes (0)
+    iteration = 0
     key = Array.new(512/8) {0x00} # 512 bits / 8 bits = 64 array slots
 
     input_blocks.each do |block|
@@ -41,6 +42,10 @@ class WhirlpoolCipher
       # new key preprocessed by XOR-ing to input bits
       key.each_index {|i| key[i] ^= block[i]}
 
+      if debug
+        iteration = iteration + 1
+        puts "Hashed block ###{iteration}"
+      end
     end
 
     encrypted_state.inject("") do |hash_val, item|
@@ -54,11 +59,9 @@ class WhirlpoolCipher
 end
 
 
-#plain_text = Array.new(512/8) {0x00}
-#plain_text = "abc".unpack("c*") #[0x61, 0x62, 0x63] # abc in ascii code
-#plain_text = []
-#plain_text = "abcdbcdecdefdefgefghfghighijhijk".unpack("c*")
+#plain_text = ("a" * 10**6).unpack("c*")
+#expected = "0C99005BEB57EFF50A7CF005560DDF5D29057FD86B20BFD62DECA0F1CCEA4AF51FC15490EDDC47AF32BB2B66C34FF9AD8C6008AD677F77126953B226E4ED8B01"
 #cipher = WhirlpoolCipher.new
-#output = cipher.hash(plain_text)
-#puts output
+#output = cipher.hash(plain_text, true)
 
+#puts output
